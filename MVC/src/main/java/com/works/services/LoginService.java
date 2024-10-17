@@ -1,5 +1,6 @@
 package com.works.services;
 
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +13,7 @@ import java.sql.Statement;
 public class LoginService {
 
     final DBService dbService;
+    final HttpServletRequest req;
 
     public boolean login( String email, String password ) {
         try {
@@ -20,7 +22,11 @@ public class LoginService {
             pre.setString(1, email);
             pre.setString(2, password);
             ResultSet rs = pre.executeQuery();
-            return rs.next();
+            boolean status = rs.next();
+            if (status) {
+                req.getSession().setAttribute("user", email);
+            }
+            return status;
         }catch (Exception ex) {}
         return false;
     }
