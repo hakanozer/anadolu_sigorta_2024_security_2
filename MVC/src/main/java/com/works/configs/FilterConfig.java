@@ -34,6 +34,7 @@ public class FilterConfig implements Filter {
             }else {
                 Object obj = request.getSession().getAttribute("user");
                 email = (String) obj;
+                request.setAttribute("email", email);
                 filterChain.doFilter(request, response);
             }
         }else {

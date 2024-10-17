@@ -13,6 +13,7 @@
 <body>
 <div class="container">
     <h2>Welcome Profile</h2>
+    <h3>${email}</h3>
 </div>
 </body>
 </html>
