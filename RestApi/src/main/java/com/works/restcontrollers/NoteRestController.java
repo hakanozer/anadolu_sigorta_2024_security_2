@@ -1,7 +1,6 @@
 package com.works.restcontrollers;
 
 import com.works.entities.Note;
-import com.works.entities.Product;
 import com.works.services.NoteService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
